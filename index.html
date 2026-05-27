@@ -157,7 +157,32 @@ object-fit:contain;
 
 margin-bottom:10px;
 
+filter:
+drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+
 animation:logoFloat 4s ease-in-out infinite;
+
+/* PROTECTION */
+
+-webkit-user-drag:none;
+user-select:none;
+pointer-events:none;
+}
+
+@keyframes logoFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
 }
 
 .office{
@@ -246,7 +271,11 @@ box-shadow 0.45s ease;
 animation:
 floatProfile 4s ease-in-out infinite;
 
-position:relative;
+/* PROTECTION */
+
+-webkit-user-drag:none;
+user-select:none;
+pointer-events:none;
 }
 
 /* HOVER EFFECT */
@@ -626,7 +655,11 @@ height:88px;
 
 <div class="top">
 
-<img src="logo.png" class="logo" alt="NTPCO Logo">
+<img
+src="logo.png"
+class="logo"
+alt="NTPCO Logo"
+draggable="false">
 
 <div class="office">
 
@@ -648,7 +681,11 @@ New Town Project Coordination Office
 
 <div class="profile-box">
 
-<img src="profile.png" class="profile" alt="Profile Photo">
+<img
+src="profile.png"
+class="profile"
+alt="Profile Photo"
+draggable="false">
 
 </div>
 
@@ -730,8 +767,10 @@ Babarmahal, Kathmandu, Nepal
 
 <div class="buttons">
 
-<a class="btn save" href="contact.vcf"
-type="text/vcard">
+<a
+class="btn save"
+href="contact.vcf"
+download>
 
 <div class="btn-icon">👤</div>
 
@@ -745,7 +784,9 @@ type="text/vcard">
 
 </a>
 
-<a class="btn call" href="tel:+9779851311401">
+<a
+class="btn call"
+href="tel:+9779851311401">
 
 <div class="btn-icon">📞</div>
 
@@ -759,7 +800,9 @@ type="text/vcard">
 
 </a>
 
-<a class="btn email" href="mailto:newtownp1@gmail.com">
+<a
+class="btn email"
+href="mailto:newtownp1@gmail.com">
 
 <div class="btn-icon">✉</div>
 
@@ -773,7 +816,10 @@ type="text/vcard">
 
 </a>
 
-<a class="btn website" href="https://ntpco.dudbc.gov.np" target="_blank">
+<a
+class="btn website"
+href="https://ntpco.dudbc.gov.np"
+target="_blank">
 
 <div class="btn-icon">🌐</div>
 
@@ -787,7 +833,10 @@ type="text/vcard">
 
 </a>
 
-<a class="btn whatsapp" href="https://wa.me/9779851311401" target="_blank">
+<a
+class="btn whatsapp"
+href="https://wa.me/9779851311401"
+target="_blank">
 
 <div class="btn-icon">💬</div>
 
@@ -801,7 +850,8 @@ type="text/vcard">
 
 </a>
 
-<a class="btn location"
+<a
+class="btn location"
 href="https://maps.app.goo.gl/BQVoycxHBYK9vYdWA"
 target="_blank">
 
@@ -819,17 +869,25 @@ target="_blank">
 
 </div>
 
-<!-- SOCIAL MEDIA -->
+<!-- SOCIAL -->
 
 <div class="social">
 
-<a href="https://www.facebook.com/newtownp1" target="_blank">f</a>
+<a href="https://www.facebook.com/newtownp1" target="_blank">
+f
+</a>
 
-<a href="https://linkedin.com" target="_blank">in</a>
+<a href="https://linkedin.com" target="_blank">
+in
+</a>
 
-<a href="https://x.com" target="_blank">𝕏</a>
+<a href="https://x.com" target="_blank">
+𝕏
+</a>
 
-<a href="https://www.youtube.com/@newtownp1" target="_blank">▶</a>
+<a href="https://www.youtube.com/@newtownp1" target="_blank">
+▶
+</a>
 
 </div>
 
@@ -837,11 +895,52 @@ target="_blank">
 
 <div class="footer">
 
-© 2026 NTPCO-Digital Card
+© 2026 NTPCO Digital Card
 
 </div>
 
 </div>
+
+<!-- IMAGE PROTECTION -->
+
+<script>
+
+/* DISABLE RIGHT CLICK */
+
+document.addEventListener("contextmenu",function(e){
+
+e.preventDefault();
+
+});
+
+/* DISABLE DRAGGING */
+
+document.addEventListener("dragstart",function(e){
+
+e.preventDefault();
+
+});
+
+/* DISABLE SHORTCUTS */
+
+document.addEventListener("keydown",function(e){
+
+if(
+
+(e.ctrlKey && e.key === "s") ||
+(e.ctrlKey && e.key === "u") ||
+(e.ctrlKey && e.shiftKey && e.key === "I") ||
+e.key === "F12"
+
+){
+
+e.preventDefault();
+
+}
+
+});
+
+</script>
 
 </body>
 </html>
