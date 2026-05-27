@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>NTPCO Digital Business Card</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:
+linear-gradient(
+135deg,
+#071120,
+#0b1b31,
+#08101d);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+min-height:100vh;
+
+overflow:hidden;
+
+color:#fff;
+
+position:relative;
+}
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:420px;
+height:420px;
+
+background:#005eff;
+
+top:-180px;
+left:-180px;
+
+filter:blur(140px);
+
+opacity:0.18;
+
+z-index:-2;
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:420px;
+height:420px;
+
+background:#00bfff;
+
+bottom:-180px;
+right:-180px;
+
+filter:blur(150px);
+
+opacity:0.12;
+
+z-index:-2;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+width:100%;
+max-width:430px;
+
+height:100vh;
+
+overflow-y:auto;
+
+padding:26px 22px 40px;
+
+background:
+linear-gradient(
+180deg,
+rgba(9,17,30,0.96),
+rgba(8,18,34,0.98));
+
+backdrop-filter:blur(18px);
+
+border-left:1px solid rgba(255,255,255,0.06);
+border-right:1px solid rgba(255,255,255,0.06);
+
+position:relative;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.top{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+margin-bottom:28px;
+}
+
+.logo{
+
+width:110px;
+height:110px;
+
+object-fit:contain;
+
+margin-bottom:10px;
+
+animation:logoFloat 4s ease-in-out infinite;
+}
+
+.office{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+}
+
+.office h1{
+
+font-size:11px;
+
+font-weight:700;
+
+line-height:1.7;
+
+letter-spacing:0.3px;
+
+margin-bottom:10px;
+
+color:#d62828;
+
+text-align:center;
+
+text-shadow:
+0 0 10px rgba(214,40,40,0.20);
+}
+
+.office p{
+
+font-size:16px;
+
+line-height:1.7;
+
+color:rgba(255,255,255,0.82);
+
+font-weight:500;
+
+text-align:center;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-box{
+
+display:flex;
+
+justify-content:center;
+
+margin:10px 0 22px;
+}
+
+.profile{
+
+width:245px;
+height:315px;
+
+object-fit:cover;
+
+border-radius:28px;
+
+padding:5px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.10),
+rgba(255,255,255,0.03));
+
+border:1px solid rgba(255,255,255,0.10);
+
+box-shadow:
+0 18px 40px rgba(0,0,0,0.38);
+
+transition:
+transform 0.45s ease,
+box-shadow 0.45s ease;
+
+animation:
+floatProfile 4s ease-in-out infinite;
+
+position:relative;
+}
+
+/* HOVER EFFECT */
+
+.profile:hover{
+
+transform:
+translateY(-8px)
+scale(1.02);
+
+box-shadow:
+0 25px 55px rgba(0,0,0,0.45),
+0 0 25px rgba(0,102,255,0.25);
+}
+
+/* FLOATING ANIMATION */
+
+@keyframes floatProfile{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* =========================
+   NAME
+========================= */
+
+.name{
+
+font-size:34px;
+
+font-weight:700;
+
+text-align:center;
+
+letter-spacing:0.4px;
+
+margin-bottom:6px;
+}
+
+.designation{
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:500;
+
+color:#67b7ff;
+
+margin-bottom:26px;
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info{
+
+background:rgba(255,255,255,0.04);
+
+border:1px solid rgba(255,255,255,0.06);
+
+border-radius:24px;
+
+padding:6px 18px;
+
+margin-bottom:28px;
+
+backdrop-filter:blur(12px);
+}
+
+.info-item{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:14px;
+
+padding:16px 0;
+
+border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.info-item:last-child{
+
+border-bottom:none;
+}
+
+.info-icon{
+
+width:48px;
+height:48px;
+
+border-radius:14px;
+
+background:
+linear-gradient(
+135deg,
+#005eff,
+#00a2ff);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:20px;
+
+flex-shrink:0;
+
+box-shadow:
+0 8px 20px rgba(0,94,255,0.24);
+}
+
+.info-text,
+.info-text a{
+
+font-size:15px;
+
+line-height:1.7;
+
+color:rgba(255,255,255,0.92);
+
+text-decoration:none;
+
+word-break:break-word;
+
+transition:0.3s ease;
+}
+
+.info-text a:hover{
+
+color:#7fc7ff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+}
+
+.btn{
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+padding:18px;
+
+border-radius:22px;
+
+text-decoration:none;
+
+color:#fff;
+
+transition:0.35s ease;
+
+box-shadow:
+0 12px 24px rgba(0,0,0,0.22);
+}
+
+.btn:hover{
+
+transform:translateY(-4px);
+}
+
+.btn-icon{
+
+width:56px;
+height:56px;
+
+border-radius:16px;
+
+background:rgba(255,255,255,0.15);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:24px;
+
+flex-shrink:0;
+}
+
+.btn-text h2{
+
+font-size:16px;
+
+font-weight:600;
+
+margin-bottom:4px;
+}
+
+.btn-text p{
+
+font-size:13px;
+
+opacity:0.92;
+}
+
+/* BUTTON COLORS */
+
+.save{
+background:linear-gradient(135deg,#005eff,#1d8fff);
+}
+
+.call{
+background:linear-gradient(135deg,#00a86b,#00cf85);
+}
+
+.email{
+background:linear-gradient(135deg,#6a3dff,#9b68ff);
+}
+
+.website{
+background:linear-gradient(135deg,#008cff,#00cfff);
+}
+
+.whatsapp{
+background:linear-gradient(135deg,#00a63e,#00cf58);
+}
+
+.location{
+background:linear-gradient(135deg,#df1b1b,#ff4b4b);
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social{
+
+display:flex;
+
+justify-content:center;
+
+gap:14px;
+
+margin-top:34px;
+}
+
+.social a{
+
+width:54px;
+height:54px;
+
+border-radius:16px;
+
+background:rgba(255,255,255,0.06);
+
+border:1px solid rgba(255,255,255,0.08);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:20px;
+
+font-weight:600;
+
+color:#fff;
+
+text-decoration:none;
+
+transition:0.3s ease;
+}
+
+.social a:hover{
+
+background:#0066ff;
+
+transform:translateY(-4px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+text-align:center;
+
+font-size:12px;
+
+color:rgba(255,255,255,0.48);
+
+margin-top:26px;
+
+line-height:1.6;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+width:4px;
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#0066ff;
+
+border-radius:10px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:430px){
+
+.card{
+padding:24px 18px 36px;
+}
+
+.profile{
+
+width:100%;
+max-width:235px;
+
+height:300px;
+}
+
+.name{
+font-size:30px;
+}
+
+.designation{
+font-size:17px;
+}
+
+.logo{
+
+width:88px;
+height:88px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- HEADER -->
+
+<div class="top">
+
+<img src="logo.png" class="logo" alt="NTPCO Logo">
+
+<div class="office">
+
+<h1>
+Government of Nepal<br>
+Ministry of Infrastructure Development<br>
+Department of Urban Development & Building Construction
+</h1>
+
+<p>
+New Town Project Coordination Office
+</p>
+
+</div>
+
+</div>
+
+<!-- PROFILE -->
+
+<div class="profile-box">
+
+<img src="profile.png" class="profile" alt="Profile Photo">
+
+</div>
+
+<!-- NAME -->
+
+<div class="name">
+Suman Salike
+</div>
+
+<div class="designation">
+Project Director
+</div>
+
+<!-- CONTACT INFO -->
+
+<div class="info">
+
+<div class="info-item">
+
+<div class="info-icon">📞</div>
+
+<div class="info-text">
+
+<a href="tel:015350171">
+Office: 015350171
+</a>
+
+<br>
+
+<a href="tel:+9779851311401">
+Mobile: +977 9851311401
+</a>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<div class="info-icon">✉</div>
+
+<div class="info-text">
+
+<a href="mailto:newtownp1@gmail.com">
+newtownp1@gmail.com
+</a>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<div class="info-icon">🌐</div>
+
+<div class="info-text">
+
+<a href="https://ntpco.dudbc.gov.np" target="_blank">
+ntpco.dudbc.gov.np
+</a>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<div class="info-icon">📍</div>
+
+<div class="info-text">
+Babarmahal, Kathmandu, Nepal
+</div>
+
+</div>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<a class="btn save" href="contact.vcf" download>
+
+<div class="btn-icon">👤</div>
+
+<div class="btn-text">
+
+<h2>Save Contact</h2>
+
+<p>Add directly to phone contacts</p>
+
+</div>
+
+</a>
+
+<a class="btn call" href="tel:+9779851311401">
+
+<div class="btn-icon">📞</div>
+
+<div class="btn-text">
+
+<h2>Call Mobile</h2>
+
+<p>+977 9851311401</p>
+
+</div>
+
+</a>
+
+<a class="btn email" href="mailto:newtownp1@gmail.com">
+
+<div class="btn-icon">✉</div>
+
+<div class="btn-text">
+
+<h2>Send Email</h2>
+
+<p>newtownp1@gmail.com</p>
+
+</div>
+
+</a>
+
+<a class="btn website" href="https://ntpco.dudbc.gov.np" target="_blank">
+
+<div class="btn-icon">🌐</div>
+
+<div class="btn-text">
+
+<h2>Visit Website</h2>
+
+<p>Official NTPCO Website</p>
+
+</div>
+
+</a>
+
+<a class="btn whatsapp" href="https://wa.me/9779851311401" target="_blank">
+
+<div class="btn-icon">💬</div>
+
+<div class="btn-text">
+
+<h2>WhatsApp</h2>
+
+<p>Chat on WhatsApp</p>
+
+</div>
+
+</a>
+
+<a class="btn location"
+href="https://maps.app.goo.gl/BQVoycxHBYK9vYdWA"
+target="_blank">
+
+<div class="btn-icon">📍</div>
+
+<div class="btn-text">
+
+<h2>Office Location</h2>
+
+<p>Open in Google Maps</p>
+
+</div>
+
+</a>
+
+</div>
+
+<!-- SOCIAL MEDIA -->
+
+<div class="social">
+
+<a href="https://www.facebook.com/newtownp1" target="_blank">f</a>
+
+<a href="https://linkedin.com" target="_blank">in</a>
+
+<a href="https://x.com" target="_blank">𝕏</a>
+
+<a href="https://www.youtube.com/@newtownp1" target="_blank">▶</a>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+© 2026 NTPCO-Digital Card
+
+</div>
+
+</div>
+
+</body>
+</html>
